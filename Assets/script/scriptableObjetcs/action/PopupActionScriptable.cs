@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[CreateAssetMenu(fileName = "NewPopupAction", menuName = "Action/NewPopupAction")]
 public class PopupActionScriptable : GenericActionScriptable
 {
    [SerializeField]
@@ -21,6 +22,7 @@ public class PopupActionScriptable : GenericActionScriptable
    [SerializeField]
    [Range(0, 7)]
    private float timeToClosePopup;
+
 
    public override IEnumerable Execute() {
       yield return new WaitForSeconds(DelayToStart);

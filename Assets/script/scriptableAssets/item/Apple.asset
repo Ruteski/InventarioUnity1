@@ -19,3 +19,8 @@ MonoBehaviour:
   isOnlyItem: 0
   label: Apple
   description: Recupera 25hp
+  currentNumber: 0
+  limitedNumber: 10
+  slotSize: 1
+  weigthPerItem: 0
+  totalWeigthPerItem: 0
