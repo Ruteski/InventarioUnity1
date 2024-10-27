@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "NewPlaySoundAction", menuName = "Action/NewPlaySoundAction")]
 public class PlaySoundActionScriptable : GenericActionScriptable
 {
-   public override IEnumerable Execute() {
+   public override IEnumerator Execute() {
       yield return new WaitForSeconds(DelayToStart);
 
       // GameController -> ShowPopup

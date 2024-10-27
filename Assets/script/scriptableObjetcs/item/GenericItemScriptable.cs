@@ -43,12 +43,12 @@ public abstract class GenericItemScriptable : ScriptableObject
    [SerializeField]
    private float totalWeigthPerItem;
 
-   /*
+
    [SerializeField]
-   private ActionManagerEvent actionManagerEvent;
+   private List<GenericActionScriptable> actionUseList;
 
    protected ActionManagerEvent actionManagerEvent;
-   */
+   
    #endregion
 
    #region Getters and Setters
@@ -127,7 +127,7 @@ public abstract class GenericItemScriptable : ScriptableObject
 
    public virtual bool Use(int value) {
       if (isOnlyItem) {
-         //ActionUseListDispatch
+         ActionUseListDispatch();
          return true;
       } else {
          //bool result = Subtract(value);
@@ -138,7 +138,7 @@ public abstract class GenericItemScriptable : ScriptableObject
          //}
 
          if(Subtract(value)) {
-            //ActionUseListDispatch
+            ActionUseListDispatch();
             return true;
          }
 
@@ -146,12 +146,13 @@ public abstract class GenericItemScriptable : ScriptableObject
       } 
    }
 
-   public virtual void ActionUseListDispatch() { 
-   
+   public virtual void ActionUseListDispatch() {
+      actionManagerEvent = new ActionManagerEvent();
+      actionManagerEvent.DispatchAllGenericActionListEvent(actionUseList);
    }
 
    public virtual void ActionEquipAndUnequipListDispatch() {
-
+      
    }
 
 

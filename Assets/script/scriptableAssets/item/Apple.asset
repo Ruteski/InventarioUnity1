@@ -24,3 +24,7 @@ MonoBehaviour:
   slotSize: 1
   weigthPerItem: 0
   totalWeigthPerItem: 0
+  actionUseList:
+  - {fileID: 11400000, guid: 8f9d5cfc07263f743b0ccbb9777bd8e9, type: 2}
+  - {fileID: 11400000, guid: 91dbf7bf191383b44bd79cc6a679fdd8, type: 2}
+  - {fileID: 11400000, guid: 248629e24fc8a0244bdc31d38e6f9474, type: 2}
