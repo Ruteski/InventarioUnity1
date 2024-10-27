@@ -34,6 +34,7 @@ public abstract class GenericItemScriptable : ScriptableObject
    private int limitedNumber;
 
    [SerializeField]
+   [Range(1f, 6f)]
    private int slotSize = 1;
 
    [SerializeField]
@@ -88,6 +89,71 @@ public abstract class GenericItemScriptable : ScriptableObject
    private void UpdateWeigth() {
       totalWeigthPerItem = weigthPerItem * currentNumber;
    }
+
+   private void OnEnable() { // metodo do scriptable parecido com o start do monobahaviour
+      Reset();
+      UpdateWeigth();
+   }
+
+   public void Reset() {
+      currentNumber = 0;
+   }
+
+   public bool Add(int value) {
+      if (isOnlyItem) {
+         currentNumber = 1;
+         return true;
+      } else { 
+         if (value + currentNumber <= limitedNumber) {
+            currentNumber += value;
+            UpdateWeigth();
+            return true;
+         }
+      }
+
+
+      return false; //se der algum problema, nao deixa a operacao ocorrer
+   }
+
+   private bool Subtract(int value) { 
+      if (currentNumber - value >= 0) {
+         currentNumber -= value;
+         UpdateWeigth();
+         return true;
+      }
+
+      return false;
+   }
+
+   public virtual bool Use(int value) {
+      if (isOnlyItem) {
+         //ActionUseListDispatch
+         return true;
+      } else {
+         //bool result = Subtract(value);
+
+         //if (result) {
+         //   //ActionUseListDispatch
+         //   return true;
+         //}
+
+         if(Subtract(value)) {
+            //ActionUseListDispatch
+            return true;
+         }
+
+         return false;
+      } 
+   }
+
+   public virtual void ActionUseListDispatch() { 
+   
+   }
+
+   public virtual void ActionEquipAndUnequipListDispatch() {
+
+   }
+
 
    #endregion
 }
