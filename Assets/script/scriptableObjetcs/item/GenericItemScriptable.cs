@@ -50,4 +50,44 @@ public abstract class GenericItemScriptable : ScriptableObject
    */
    #endregion
 
+   #region Getters and Setters
+
+   public int Id { get => id; }
+
+   public Sprite Icon { get => icon; }
+
+   public bool IsDroppable { get => isDroppable; }
+
+   public bool RemoveWhenNumberisZero { get => removeWhenNumberisZero; }
+
+   public bool IsOnlyItem { get => isOnlyItem; }
+
+   public string Label { get => label; }
+
+   public string Description { get => description; }
+
+   public int CurrentNumber { get => currentNumber; }
+
+   public int LimitedNumber { get => limitedNumber; }
+
+   public int SlotSize { get => slotSize; }
+
+   public float WeigthPerItem { get => weigthPerItem; }
+
+   public float TotalWeigthPerItem { 
+      get {
+         UpdateWeigth();
+         return totalWeigthPerItem;
+      }
+   }
+
+   #endregion
+
+   #region Methods
+
+   private void UpdateWeigth() {
+      totalWeigthPerItem = weigthPerItem * currentNumber;
+   }
+
+   #endregion
 }
