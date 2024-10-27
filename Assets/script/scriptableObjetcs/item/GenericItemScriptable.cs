@@ -36,6 +36,18 @@ public abstract class GenericItemScriptable : ScriptableObject
    [SerializeField]
    private int slotSize = 1;
 
+   [SerializeField]
+   private float weigthPerItem;
+
+   [SerializeField]
+   private float totalWeigthPerItem;
+
+   /*
+   [SerializeField]
+   private ActionManagerEvent actionManagerEvent;
+
+   protected ActionManagerEvent actionManagerEvent;
+   */
    #endregion
 
 }
