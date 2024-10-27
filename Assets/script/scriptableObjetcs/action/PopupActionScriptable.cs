@@ -24,7 +24,7 @@ public class PopupActionScriptable : GenericActionScriptable
    private float timeToClosePopup;
 
 
-   public override IEnumerable Execute() {
+   public override IEnumerator Execute() {
       yield return new WaitForSeconds(DelayToStart);
 
       // GameController -> ShowPopup

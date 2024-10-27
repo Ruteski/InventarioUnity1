@@ -10,5 +10,5 @@ public abstract class GenericActionScriptable : ScriptableObject
 
    protected float DelayToStart { get => delayToStart; }
 
-   public abstract IEnumerable Execute();
+   public abstract IEnumerator Execute();
 }
